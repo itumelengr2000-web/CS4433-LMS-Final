@@ -1,0 +1,49 @@
+---
+config:
+  theme: base
+  themeVariables:
+    background: '#ffffff'
+    primaryColor: '#ffffff'
+    secondaryColor: '#ffffff'
+    tertiaryColor: '#ffffff'
+    primaryTextColor: '#000000'
+    secondaryTextColor: '#000000'
+    tertiaryTextColor: '#000000'
+    primaryBorderColor: '#000000'
+    lineColor: '#000000'
+    clusterBkg: '#ffffff'
+    clusterBorder: '#000000'
+    edgeLabelBackground: '#ffffff'
+    fontFamily: 'Arial'
+  flowchart:
+    curve: linear
+---
+flowchart TB
+    users[Users<br/>Administrator / Lecturer / HoD / Student]
+
+    subgraph school[School computer / Windows WSL2 Ubuntu]
+        direction TB
+        terminal[Terminal]
+        app[LMS console application<br/>C++17 executable]
+        schema[schema.sql<br/>database schema and indexes]
+        sqlite[(SQLite database<br/>school-lms.db)]
+        openssl[OpenSSL libcrypto<br/>PBKDF2-HMAC-SHA256]
+        terminal --> app
+        app --> schema
+        app --> sqlite
+        app --> openssl
+    end
+
+    subgraph qa[Development and QA environment only]
+        direction LR
+        gtest[GoogleTest<br/>test executable]
+        cppcheck[cppcheck<br/>static analyser]
+    end
+
+    users --> terminal
+    gtest -->|runs regression tests| app
+    cppcheck -->|analyses source code| app
+
+    classDef plain fill:#ffffff,stroke:#000000,color:#000000;
+    class users,terminal,app,schema,sqlite,openssl,gtest,cppcheck,school,qa plain;
+    linkStyle default stroke:#000000,stroke-width:1px;
