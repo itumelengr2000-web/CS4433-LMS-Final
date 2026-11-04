@@ -9,7 +9,7 @@ This repository contains the complete moderated Learning Management System proje
 | 1 | `phase1-planning/` | Project planning and management |
 | 2 | `phase2-requirements/` | Stakeholder analysis, SRS and use cases |
 | 3 | `phase3-design/` | Architecture, UML, behavioural and database design |
-| 4 | `src/`, `include/`, `tests/` | C++17 implementation and automated tests |
+| 4 | `phase4-implementation/`, `src/`, `include/`, `tests/` | C++17 implementation, build guide and automated tests |
 | 5 | `phase5-verification/` | Test strategy, results and screenshot guide |
 | 6 | `phase6-quality-assurance/` | QA evidence, static analysis and configuration management |
 | 7 | `phase7-deployment/` | Installation, user manual, release notes and deployment diagram |
